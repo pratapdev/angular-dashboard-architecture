@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserIdleService } from 'angular-user-idle';
 
@@ -8,6 +8,7 @@ import { UserIdleService } from 'angular-user-idle';
   styleUrls: ['./timeout-modal.component.scss']
 })
 export class TimeoutModalComponent implements OnInit, OnDestroy {
+  @Input('name') name;
   counter = 10;
   sessionExtended = false;
   timer: any;
