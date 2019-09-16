@@ -1,0 +1,47 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="list-group">
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+            <span>{{ 'Dashboard' | translate }}</span>
+        </a>
+        <a [routerLink]="['/menu1']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-comments"></i>&nbsp;
+            <span>{{ 'Home' | translate }}</span>
+        </a>
+        <a [routerLink]="['/menu2']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-tasks"></i>&nbsp;
+            <span>{{ 'Menu 2' | translate }}</span>
+        </a>
+      
+       
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>{{ 'Menu 3' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a  [routerLink]="['/menu3/submenu1']" [routerLinkActive]="['router-link-active']" >
+                            <i class="fa fa-user"></i> &nbsp;
+                            <span>{{ 'Submenu1' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a  [routerLink]="['/menu3/submenu2']" [routerLinkActive]="['router-link-active']" >
+                            <i class="fa fa-user"></i>&nbsp;
+                            <span>{{ 'Submenu2' | translate }}</span>
+                        </a>
+                    </li>
+                   
+                </ul>
+            </li>
+        </div>
+       
+               
+    </div>
+    <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+        <i class="fa fa-fw fa-angle-double-{{collapsed?'right':'left'}}"></i>&nbsp;
+        <span>{{ 'Collapse Sidebar' | translate }}</span>
+    </div>
+</nav>
